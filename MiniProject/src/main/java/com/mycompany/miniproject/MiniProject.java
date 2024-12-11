@@ -39,22 +39,22 @@ public class MiniProject {
             outputNextFit[i] = -1;
         }
 
-        int currentIndex = 0; // Keeps track of the current position in memory blocks
+        int currentIndex = 0; 
 
         for (int i = 0; i < p; i++) {
             boolean allocated = false;
             for (int j = 0; j < n; j++) {
-                int index = (currentIndex + j) % n; // Circular traversal using modulo
+                int index = (currentIndex + j) % n; 
                 if (memory[index] >= process[i]) {
                     outputNextFit[i] = memory[index];
-                    memory[index] -= process[i]; // Reduce available memory in the block
-                    currentIndex = index; // Update the current position
+                    memory[index] -= process[i]; 
+                    currentIndex = index; 
                     allocated = true;
                     break;
                 }
             }
             if (!allocated) {
-                currentIndex = (currentIndex + 1) % n; // Move to the next block if no allocation
+                currentIndex = (currentIndex + 1) % n; 
             }
         }
 
